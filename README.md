@@ -46,6 +46,10 @@ py-patterns
 - 大话设计模式
 - [python-patterns](https://github.com/faif/python-patterns)
 
+### TODO:
+
+review with https://github.com/faif/python-patterns
+
 
 # Donation
 
