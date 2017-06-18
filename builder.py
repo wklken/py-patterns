@@ -7,6 +7,12 @@
 
 - 用户只需指定需要建造的类型, 不需要知道具体地建造过程和细节
 - 建造者模式是在当创建复杂对象的算法应该独立于该对象的组成部分以及它们的装配方式时适用的模式
+- 可替换性
+
+举例:
+一篇文章, 存在很多结构, 例如title/author/content/create_time等, 系统输出时, 要分两种方式展现
+text和html, 输出每一部分的实现都不一样, 此时, 上层不需要知道底层两个输出格式是如何实现的
+
 """
 
 from abc import ABCMeta, abstractmethod
@@ -48,6 +54,9 @@ class Builder(object):
 
 
 class BuilderA(Builder):
+    """
+    具体建造者A
+    """
     def __init__(self):
         self.__product = Product()
 
@@ -62,6 +71,9 @@ class BuilderA(Builder):
 
 
 class BuilderB(Builder):
+    """
+    具体建造者B
+    """
     def __init__(self):
         self.__product = Product()
 
@@ -76,6 +88,11 @@ class BuilderB(Builder):
 
 
 class Director(object):
+    """
+    指挥构建过程
+
+    director不知道自己用的是哪个, 即: 只有不知道, 才能随时替换
+    """
     @staticmethod
     def construct(builder):
         builder.build_part_1()

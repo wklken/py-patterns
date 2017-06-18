@@ -29,7 +29,7 @@ py-patterns
 #### 3. 行为型
 
 - 观察者   [observer](https://github.com/wklken/py-patterns/blob/master/observer.py)
-- 模板方法 [abstract](https://github.com/wklken/py-patterns/blob/master/abstract.py)
+- 模板方法 [abstract](https://github.com/wklken/py-patterns/blob/master/template_method.py)
 - 命令     [command](https://github.com/wklken/py-patterns/blob/master/command.py)
 - 状态     [state](https://github.com/wklken/py-patterns/blob/master/state.py)
 - 责任链   [chain_of_responsibility](https://github.com/wklken/py-patterns/blob/master/chain_of_responsibility.py)
@@ -44,11 +44,12 @@ py-patterns
 ### 参考
 
 - 大话设计模式
+- 图解设计模式
 - [python-patterns](https://github.com/faif/python-patterns)
 
 ### TODO:
 
-review with https://github.com/faif/python-patterns
+- review with https://github.com/faif/python-patterns
 
 
 # Donation
