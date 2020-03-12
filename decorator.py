@@ -14,12 +14,11 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Component(object):
+class Component(metaclass=ABCMeta):
     """
     定义一个对象接口
     可以给这些对象动态地增加职责
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def operation(self):
@@ -32,7 +31,7 @@ class ConcreteComponent(Component):
     """
 
     def operation(self):
-        print "Hello world"
+        print("Hello world")
 
 
 class Decorator(Component):
@@ -52,16 +51,16 @@ class DecoratorA(Decorator):
     具体装饰对象, 给component添加职责
     """
     def operation(self):
-        print "<h1>"
+        print("<h1>")
         super(DecoratorA, self).operation()
-        print "</h1>"
+        print("</h1>")
 
 
 class DecoratorB(Decorator):
     def operation(self):
-        print "<strong>"
+        print("<strong>")
         super(DecoratorB, self).operation()
-        print "</strong>"
+        print("</strong>")
 
 if __name__ == '__main__':
     c = ConcreteComponent()

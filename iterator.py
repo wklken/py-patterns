@@ -13,66 +13,57 @@
 wiki: https://zh.wikipedia.org/wiki/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F
 python:
     - http://nvie.com/posts/iterators-vs-generators/
-    - https://docs.python.org/2/glossary.html#term-iterator
-    - https://docs.python.org/2/library/collections.html#collections.Iterable
-    - https://docs.python.org/2/library/collections.html#collections.Iterator
+    - https://docs.python.org/3.6/glossary.html#term-iterator
+    - https://docs.python.org/3.6/library/collections.abc.html?highlight=iterable#collections.abc.Iterable
+    - https://docs.python.org/3.6/library/collections.abc.html?highlight=iterator#collections.abc.Iterator
 """
 
 # 不考虑默认的迭代器
 from abc import ABCMeta, abstractmethod
 
 
-class Iterator(object):
+class Iterator(metaclass=ABCMeta):
     """
     迭代抽象类
 
     定义迭代器抽象方法
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
-    def first(self):
-        pass
-
-    @abstractmethod
-    def next(self):
-        """
-        object
+    def __iter__(self):
+        """ 
+        should return self 
+        this makes the class an Iterable
         """
         pass
 
     @abstractmethod
-    def has_next(self):
+    def __next__(self):
         """
-        bool
+        Return the next item from the iterator. 
+        When exhausted, raise StopIteration
         """
-        pass
-
-    @abstractmethod
-    def current_item(self):
         pass
 
 
 class ConcreteIterator(Iterator):
     def __init__(self, aggregate):
         self.__aggregate = aggregate
-        self.current = 0
+        self.index = 0
 
-    def first(self):
-        return self.__aggregate[0]
 
-    def next(self):
-        result = None
-        self.current += 1
-        if self.current < len(self.__aggregate):
-            result = self.__aggregate[self.current]
-        return result
+    def __next__(self):
+        try:
+            value=self.__aggregate[self.index]
+        except IndexError:
+            raise StopIteration()
+        self.index+=1
+        return value
+    
+        
+    def __iter__(self):
+        return self
 
-    def has_next(self):
-        return self.current >= len(self.__aggregate)
-
-    def current_item(self):
-        return self.__aggregate[self.current]
 
 
 # python 定义一个迭代器
@@ -87,10 +78,8 @@ class YRange(collections.Iterator):
     def __iter__(self):
         return self
 
-    def has_next(self):
-        return self.i < self.n
 
-    def next(self):
+    def __next__(self):
         if self.i < self.n:
             i = self.i
             self.i += 1
@@ -100,20 +89,23 @@ class YRange(collections.Iterator):
 
 
 if __name__ == '__main__':
-    aggregate = [0] * 3
+    aggregate ="a b c d e".split()
 
-    aggregate[0] = 'a'
-    aggregate[1] = 'b'
-    aggregate[2] = 'c'
+    print(issubclass(ConcreteIterator,collections.Iterator))
 
     it = ConcreteIterator(aggregate)
-    i = it.first()
-    while not it.has_next():
-        print "current:", it.current_item()
-        it.next()
+    i=iter(it)
 
+    # equals to for j in i
+    while True:
+        try:
+            print(next(i))
+        except StopIteration:
+            del i
+            break
+       
     y = YRange(3)
-    print list(y)
+    print(list(y))
 
     y1 = YRange(5)
-    print iter(y1)
+    print(iter(y1))

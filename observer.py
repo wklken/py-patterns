@@ -49,11 +49,10 @@ class ConcreteSubject(Subject):
         self.__status = value
 
 
-class Observer(object):
+class Observer(metaclass=ABCMeta):
     """
     抽象观察者, 位所有具体观察者定义接口, 在得到主题的通知时更新自己
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def update(self):
@@ -72,7 +71,7 @@ class ConcreteObserver(Observer):
 
     def update(self):
         self.objserver_staus = self.subject.status
-        print "the observer: %s status change to %s" % (self.name , self.objserver_staus)
+        print("the observer: %s status change to %s" % (self.name , self.objserver_staus))
 
 
 if __name__ == '__main__':

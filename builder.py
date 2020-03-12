@@ -30,15 +30,13 @@ class Product(object):
         self.__parts.append(part)
 
     def show(self):
-        print '-'.join(self.__parts)
+        print('-'.join(item for item in self.__parts))
 
 
-class Builder(object):
+class Builder(metaclass=ABCMeta):
     """
     为创建一个product对象的各个部件指定的抽象接口
     """
-
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def build_part_1(self):

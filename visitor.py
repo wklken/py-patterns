@@ -15,11 +15,10 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Visitor(object):
+class Visitor(metaclass=ABCMeta):
     """
     为该对象结构中concreteelement的每一个类声明一个visit操作
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def visitor_concrete_element_a(self, concrete_element_a):
@@ -38,12 +37,12 @@ class ConcreteVisitor1(Visitor):
     """
 
     def visitor_concrete_element_a(self, concrete_element_a):
-        print "%s visit %s" % (self.__class__.__name__,
-                               concrete_element_a.__class__.__name__)
+        print("%s visit %s" % (self.__class__.__name__,
+                               concrete_element_a.__class__.__name__))
 
     def visitor_concrete_element_b(self, concrete_element_b):
-        print "%s visit %s" % (self.__class__.__name__,
-                               concrete_element_b.__class__.__name__)
+        print("%s visit %s" % (self.__class__.__name__,
+                               concrete_element_b.__class__.__name__))
 
 
 class ConcreteVisitor2(Visitor):
@@ -54,19 +53,18 @@ class ConcreteVisitor2(Visitor):
     """
 
     def visitor_concrete_element_a(self, concrete_element_a):
-        print "%s visit %s" % (self.__class__.__name__,
-                               concrete_element_a.__class__.__name__)
+        print("%s visit %s" % (self.__class__.__name__,
+                               concrete_element_a.__class__.__name__))
 
     def visitor_concrete_element_b(self, concrete_element_b):
-        print "%s visit %s" % (self.__class__.__name__,
-                               concrete_element_b.__class__.__name__)
+        print("%s visit %s" % (self.__class__.__name__,
+                               concrete_element_b.__class__.__name__))
 
 
-class Element(object):
+class Element(metaclass=ABCMeta):
     """
     定义一个accept操作, 以一个访问者为参数
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def accept(self, visitor):
@@ -102,7 +100,7 @@ class ObjectStructure(object):
         self.__elements.append(element)
 
     def detach(self, element):
-        self.__element.remove(element)
+        self.__elements.remove(element)
 
     def accept(self, visitor):
         for e in self.__elements:

@@ -19,18 +19,16 @@
 from abc import ABCMeta, abstractmethod
 
 
-class AbstractClass(object):
+class AbstractClass(metaclass=ABCMeta):
     """
     实现了一个模板方法, 定义了算法的挂架
     """
 
-    __metaclass__ = ABCMeta
-
     def say_hello(self):
-        print "begin..."
+        print("begin...")
         self.hello()
         self.world()
-        print "end..."
+        print("end...")
 
     @abstractmethod
     def hello(self):
@@ -46,10 +44,10 @@ class ConcreteClass(AbstractClass):
     实现了特定的步骤
     """
     def hello(self):
-        print "hello"
+        print("hello")
 
     def world(self):
-        print "world"
+        print("world")
 
 
 if __name__ == '__main__':

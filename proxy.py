@@ -11,12 +11,11 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Subject(object):
+class Subject(metaclass=ABCMeta):
     """
     定义了RealSubject和Proxy的共用接口
     这样就在任何使用realsubject的地方都可以使用proxy
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def request(self):
@@ -28,7 +27,7 @@ class RealSubject(Subject):
     定义了真正的实体
     """
     def request(self):
-        print "hello"
+        print("hello")
 
 
 class Proxy(Subject):

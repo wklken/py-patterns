@@ -11,8 +11,7 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Implementor(object):
-    __metaclass__ = ABCMeta
+class Implementor(metaclass=ABCMeta):
 
     @abstractmethod
     def operation(self):
@@ -21,12 +20,12 @@ class Implementor(object):
 
 class ConcreteImplementorA(Implementor):
     def operation(self):
-        print "plan A"
+        print("plan A")
 
 
 class ConcreteImplementorB(Implementor):
     def operation(self):
-        print "plan B"
+        print("plan B")
 
 
 class Abstraction(object):

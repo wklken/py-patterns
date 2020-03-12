@@ -16,11 +16,10 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Strategy(object):
+class Strategy(metaclass=ABCMeta):
     """
     策略类, 定义所有支持的算法的公共接口
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def calculate(self):
@@ -33,7 +32,7 @@ class StrategyA(Strategy):
     """
 
     def calculate(self):
-        print "calculate A"
+        print("calculate A")
 
 
 class StrategyB(Strategy):
@@ -42,7 +41,7 @@ class StrategyB(Strategy):
     """
 
     def calculate(self):
-        print "calculate B"
+        print("calculate B")
 
 
 class Context(object):

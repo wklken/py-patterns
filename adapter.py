@@ -37,15 +37,13 @@ class Adaptee(object):
     """
 
     def special_request(self):
-        print "I am special"
+        print("I am special")
 
 
-class Target(object):
+class Target(metaclass=ABCMeta):
     """
     客户锁期待的接口, 目标可以使具体或抽象的类, 也可以是接口
     """
-    __metaclass__ = ABCMeta
-
     @abstractmethod
     def request(self):
         pass
