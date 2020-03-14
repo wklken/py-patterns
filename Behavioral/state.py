@@ -17,11 +17,10 @@
 from abc import ABCMeta, abstractmethod
 
 
-class State(object):
+class State(metaclass=ABCMeta):
     """
     抽象状态类, 定义一个接口以封装与Context的一个特定状态相关的行为
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def handle(self, context):
@@ -58,7 +57,7 @@ class Context(object):
 
     @state.setter
     def state(self, value):
-        print "current status:", value.__class__.__name__
+        print("current status:", value.__class__.__name__)
         self.__state = value
 
     def request(self):

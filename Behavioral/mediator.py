@@ -14,11 +14,10 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Mediator(object):
+class Mediator(metaclass=ABCMeta):
     """
     抽象中介者, 定义了同事对象到中介者对象的接口
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def send(self, msg, colleague):
@@ -55,11 +54,10 @@ class ConcreteMediator(Mediator):
             self.__colleague1.notify(msg)
 
 
-class Colleague(object):
+class Colleague(metaclass=ABCMeta):
     """
     抽象同事类
     """
-    __metaclass__ = ABCMeta
 
     def __init__(self, mediator):
         self.__mediator = mediator
@@ -82,7 +80,7 @@ class ConcreteColleague1(Colleague):
         self.mediator.send(message, self)
 
     def notify(self, message):
-        print "colleageu 1 get message: ", message
+        print("colleageu 1 get message: ", message)
 
 
 class ConcreteColleague2(Colleague):
@@ -90,7 +88,7 @@ class ConcreteColleague2(Colleague):
         self.mediator.send(message, self)
 
     def notify(self, message):
-        print "colleageu 2 get message: ", message
+        print("colleageu 2 get message: ", message)
 
 
 if __name__ == '__main__':

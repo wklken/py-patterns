@@ -14,13 +14,12 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Flyweight(object):
+class Flyweight(metaclass=ABCMeta):
     """
     所有具体享元类的超类或接口
 
     通过这个接口, flyweight可以接受并作用于外部状态
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def operation(self, extrinsicstate):
@@ -33,7 +32,7 @@ class ConcreteFlyweight(Flyweight):
     """
 
     def operation(self, extrinsicstate):
-        print "specific flyweight:", extrinsicstate
+        print("specific flyweight:", extrinsicstate)
 
 
 class UnsharedConcreteFlyweight(Flyweight):
@@ -42,7 +41,7 @@ class UnsharedConcreteFlyweight(Flyweight):
     """
 
     def operation(self, extrinsicstate):
-        print "unshared flyweight:", extrinsicstate
+        print("unshared flyweight:", extrinsicstate)
 
 
 class FlyweightFactory(object):

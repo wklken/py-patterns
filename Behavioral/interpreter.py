@@ -16,13 +16,12 @@
 from abc import ABCMeta, abstractmethod
 
 
-class AbstractExpression(object):
+class AbstractExpression(metaclass=ABCMeta):
     """
     抽象表达式, 声明一个抽象的解释操作
 
     这个接口被抽象语法书中的所有节点所共享
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def interpret(self, context):
@@ -37,7 +36,7 @@ class TerminalExpression(AbstractExpression):
     """
 
     def interpret(self, context):
-        print "terminal"
+        print("terminal")
 
 
 class NoterminalExpression(AbstractExpression):
@@ -48,7 +47,7 @@ class NoterminalExpression(AbstractExpression):
     """
 
     def interpret(self, context):
-        print "no terminal"
+        print("no terminal")
 
 
 class Context(object):

@@ -17,11 +17,10 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Command(object):
+class Command(metaclass=ABCMeta):
     """
     声明执行操作的接口
     """
-    __metaclass__ = ABCMeta
 
     def __init__(self, receiver):
         self.receiver = receiver
@@ -55,7 +54,7 @@ class Invoker(object):
 
 class Receiver(object):
     def action(self):
-        print "execute command"
+        print("execute command")
 
 
 if __name__ == '__main__':

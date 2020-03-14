@@ -39,13 +39,13 @@ class Leaf(Component):
     """
 
     def add(self, component):
-        print "can not add to a leaf"
+        print("can not add to a leaf")
 
     def remove(self, component):
-        print "can not remove from a leaf"
+        print("can not remove from a leaf")
 
     def display(self, depth):
-        print '-' * depth + self.name
+        print('-' * depth + self.name)
 
 
 class Composite(Component):
@@ -66,7 +66,7 @@ class Composite(Component):
         self.__children.remove(component)
 
     def display(self, depth):
-        print '-' * depth + self.name
+        print('-' * depth + self.name)
         for c in self.__children:
             c.display(depth + 2)
 

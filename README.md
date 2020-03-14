@@ -2,7 +2,7 @@ py-patterns
 ===========================
 
 
-设计模式的Python版本
+设计模式的`Python3.X`版本
 
 ### 分类
 
@@ -69,3 +69,4 @@ Github: https://github.com/wklken
 Blog: [http://www.wklken.me](http://www.wklken.me)
 
 2015-08-24 ShenZheng
+2020-03-13 [HuQianshan](https://github.com/huqianshan)

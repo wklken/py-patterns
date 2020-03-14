@@ -23,11 +23,10 @@ import copy
 from abc import ABCMeta, abstractmethod
 
 
-class Prototype(object):
+class Prototype(metaclass=ABCMeta):
     """
     原型类, 声明一个克隆自身的接口
     """
-    __metaclass__ = ABCMeta
 
     def __init__(self, id):
         self.__id = id
@@ -77,7 +76,7 @@ class Manager(object):
 if __name__ == '__main__':
     ca = ConcretePrototypeA(1)
     c2 = ca.clone()
-    print c2.id
+    print(c2.id)
 
     # with manager
     cb = ConcretePrototypeB(2)
@@ -87,5 +86,5 @@ if __name__ == '__main__':
     m.register("cb", cb)
 
     x = m.create("cb")
-    print x.id
+    print(x.id)
 

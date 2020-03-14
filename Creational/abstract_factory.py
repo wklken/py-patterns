@@ -50,12 +50,12 @@ class ConcreteProductB2(AbstractProductB):
     pass
 
 
-class AbstractFactory(object):
+class AbstractFactory(metaclass=ABCMeta):
     """
     抽象工厂接口, 包含所有产品创建的抽象方法
     """
-    __metaclass__ = ABCMeta
 
+    
     @abstractmethod
     def create_product_a(self):
         pass
@@ -89,4 +89,4 @@ if __name__ == '__main__':
     factory = ConcreteFactory2()
 
     product_a = factory.create_product_a()
-    print product_a
+    print(product_a)

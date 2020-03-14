@@ -46,9 +46,10 @@ class OperationFactory(object):
         elif operate == "-":
             return OperationSub()
 
+
 if __name__ == '__main__':
-    op = OperationFactory.create_operation('+')
+    op = OperationFactory.create_operation('-')
     op.number_a = 10
     op.number_b = 5
 
-    print op.get_result()
+    print(op.get_result())

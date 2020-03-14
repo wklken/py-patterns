@@ -37,7 +37,7 @@ class Originator(object):
         self.__state = memento.state
 
     def show(self):
-        print "State:", self.__state
+        print("State:", self.__state)
 
 
 class Memento(object):

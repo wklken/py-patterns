@@ -13,17 +13,17 @@
 
 class SystemA(object):
     def call_a(self):
-        print "call a"
+        print("call a")
 
 
 class SystemB(object):
     def call_b(self):
-        print "call b"
+        print("call b")
 
 
 class SystemC(object):
     def call_c(self):
-        print "call c"
+        print("call c")
 
 
 class Facade(object):

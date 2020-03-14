@@ -12,11 +12,10 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Product(object):
+class Product(metaclass=ABCMeta):
     """
     定义工厂方法所创建的对象接口
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def echo(self):
@@ -29,7 +28,7 @@ class ConcreteProductA(Product):
     """
 
     def echo(self):
-        print "product A"
+        print(self.__class__.__name__)
 
 
 class ConcreteProductB(Product):
@@ -38,14 +37,14 @@ class ConcreteProductB(Product):
     """
 
     def echo(self):
-        print "product B"
+        #print("product B")
+        print(self.__class__.__name__)
 
 
 class Creator(object):
     """
     声明了工厂方法, 该方法返回一个Product类型的对象
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def create(self):
