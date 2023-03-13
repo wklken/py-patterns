@@ -42,7 +42,7 @@ class ConcreteHandlerA(Handler):
 
     def handle_request(self, request):
         if 0 <= request < 10:
-            print("%s process %s" % (self.__class__.__name__, request))
+            print(f"{self.__class__.__name__} process {request}")
         else:
             self.successor.handle_request(request)
 
@@ -56,7 +56,7 @@ class ConcreteHandlerB(Handler):
 
     def handle_request(self, request):
         if 10 <= request < 20:
-            print("%s process %s" % (self.__class__.__name__, request))
+            print(f"{self.__class__.__name__} process {request}")
         else:
             self.successor.handle_request(request)
 
@@ -70,7 +70,7 @@ class ConcreteHandlerC(Handler):
 
     def handle_request(self, request):
         if 20 <= request < 30:
-            print("%s process %s" % (self.__class__.__name__, request))
+            print(f"{self.__class__.__name__} process {request}")
         else:
             self.successor.handle_request(request)
 

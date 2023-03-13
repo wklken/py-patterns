@@ -71,7 +71,7 @@ class ConcreteObserver(Observer):
 
     def update(self):
         self.objserver_staus = self.subject.status
-        print("the observer: %s status change to %s" % (self.name , self.objserver_staus))
+        print(f"the observer: {self.name} status change to {self.objserver_staus}")
 
 
 if __name__ == '__main__':

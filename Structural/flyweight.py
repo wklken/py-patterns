@@ -52,7 +52,7 @@ class FlyweightFactory(object):
     """
 
     def __init__(self):
-        self.__flyweights = dict()
+        self.__flyweights = {}
 
         fx = ConcreteFlyweight()
         self.__flyweights["X"] = fx
