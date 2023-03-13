@@ -30,7 +30,7 @@ class Product(object):
         self.__parts.append(part)
 
     def show(self):
-        print('-'.join(item for item in self.__parts))
+        print('-'.join(self.__parts))
 
 
 class Builder(metaclass=ABCMeta):

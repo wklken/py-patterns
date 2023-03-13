@@ -79,8 +79,7 @@ class Context(object):
 if __name__ == '__main__':
     context = Context("in", "out")
 
-    l = []
-    l.append(TerminalExpression())
+    l = [TerminalExpression()]
     l.append(TerminalExpression())
     l.append(NoterminalExpression())
 

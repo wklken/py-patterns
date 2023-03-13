@@ -37,12 +37,14 @@ class ConcreteVisitor1(Visitor):
     """
 
     def visitor_concrete_element_a(self, concrete_element_a):
-        print("%s visit %s" % (self.__class__.__name__,
-                               concrete_element_a.__class__.__name__))
+        print(
+            f"{self.__class__.__name__} visit {concrete_element_a.__class__.__name__}"
+        )
 
     def visitor_concrete_element_b(self, concrete_element_b):
-        print("%s visit %s" % (self.__class__.__name__,
-                               concrete_element_b.__class__.__name__))
+        print(
+            f"{self.__class__.__name__} visit {concrete_element_b.__class__.__name__}"
+        )
 
 
 class ConcreteVisitor2(Visitor):
@@ -53,12 +55,14 @@ class ConcreteVisitor2(Visitor):
     """
 
     def visitor_concrete_element_a(self, concrete_element_a):
-        print("%s visit %s" % (self.__class__.__name__,
-                               concrete_element_a.__class__.__name__))
+        print(
+            f"{self.__class__.__name__} visit {concrete_element_a.__class__.__name__}"
+        )
 
     def visitor_concrete_element_b(self, concrete_element_b):
-        print("%s visit %s" % (self.__class__.__name__,
-                               concrete_element_b.__class__.__name__))
+        print(
+            f"{self.__class__.__name__} visit {concrete_element_b.__class__.__name__}"
+        )
 
 
 class Element(metaclass=ABCMeta):

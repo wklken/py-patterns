@@ -80,12 +80,11 @@ class YRange(collections.Iterator):
 
 
     def __next__(self):
-        if self.i < self.n:
-            i = self.i
-            self.i += 1
-            return i
-        else:
+        if self.i >= self.n:
             raise StopIteration()
+        i = self.i
+        self.i += 1
+        return i
 
 
 if __name__ == '__main__':

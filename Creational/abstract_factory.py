@@ -20,7 +20,7 @@ class AbstractProductA(object):
         self.name = name
 
     def __str__(self):
-        return "ProductA: %s" % self.name
+        return f"ProductA: {self.name}"
 
 
 class ConcreteProductA1(AbstractProductA):
@@ -39,7 +39,7 @@ class AbstractProductB(object):
         self.name = name
 
     def __str__(self):
-        return "ProductB: %s" % self.name
+        return f"ProductB: {self.name}"
 
 
 class ConcreteProductB1(AbstractProductB):
